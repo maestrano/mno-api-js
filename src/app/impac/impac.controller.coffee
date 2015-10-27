@@ -9,7 +9,9 @@
   vm.getWidgets = ->
     vm.widgets = []
     vm.widgets.push({name: 'Accounts Balance', engine: 'accounts/balance'})
-    vm.widgets.push({name: 'Accounts Summary', engine: 'accounts/summary'})
+    vm.widgets.push({name: 'Accounts Summary', engine: 'accounts/assets_summary'})
+    vm.widgets.push({name: 'Payable / Receivable', engine: 'accounts/payable_receivable'})
+    vm.widgets.push({name: 'EBITDA', engine: 'accounts/accounting_values/ebitda'})
 
   vm.fetchData = ->
     payload = {metadata:{organization_ids:[EndpointSvc.groupid]}, engine:vm.selectedWidget}
