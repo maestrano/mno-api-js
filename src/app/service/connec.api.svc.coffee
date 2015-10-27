@@ -1,4 +1,4 @@
-@AppServices.factory 'ApiSvc', ($log, $base64, Restangular) ->
+@AppServices.factory 'ConnecApiSvc', ($log, $base64, Restangular) ->
   (apiKey, apiSecret, url, groupId) ->
     return Restangular.withConfig((RestangularProvider) ->
       RestangularProvider.setBaseUrl(url + "/" + groupId)

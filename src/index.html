@@ -24,7 +24,22 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div ui-view></div>
+    <div class="main open" id="page-wrapper">
+      
+      <div id="sidebar-wrapper">
+        <ul class="sidebar">
+          <li class="sidebar-list">
+            <a href="#/connec"><span class="menu-icon fa fa-database"></span>Connec!</a>
+          </li>
+          <li class="sidebar-list">
+            <a href="#/impac"><span class="menu-icon fa fa-pie-chart"></span>Impac!</a>
+          </li>
+        </ul>
+      </div>
+        
+      <div ui-view></div>
+
+    </div>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->

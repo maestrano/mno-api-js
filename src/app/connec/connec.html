@@ -1,0 +1,52 @@
+<div id="content-wrapper">
+  <div class="page-content container-fluid">
+    <div class="row header">
+      <div class="col-xs-12">
+        <div class="meta col-xs-4">
+          <div class="page">
+            Connec! Resource
+            <select name="select-resource" id="select-resource"
+                ng-options="endpoint.resource as endpoint.resource for endpoint in vm.endpoints | orderBy:'resource'"
+                ng-model="vm.selectedResource" ng-change="vm.changeResource()"></select>
+          </div>
+        </div>
+        <div class="meta col-xs-2">
+          <div class="page"><input class="col-lg-12" type="text" ng-model="endpointSvc.apikey"></div>
+          <div class="breadcrumb-links">API Key</div>
+        </div>
+        <div class="meta col-xs-2">
+          <div class="page"><input class="col-lg-12" type="text" ng-model="endpointSvc.apisecret"></div>
+          <div class="breadcrumb-links">API Secret</div>
+        </div>
+        <div class="meta col-xs-1">
+          <div class="page"><input tclass="col-lg-12" ype="text" ng-model="endpointSvc.groupid"></div>
+          <div class="breadcrumb-links">Group ID</div>
+        </div>
+        <div class="meta col-xs-3">
+          <div class="page"><input class="col-lg-12" type="text" ng-model="vm.apiEndpoint" ng-blur="vm.changeResource()"></div>
+          <div class="breadcrumb-links">API Endpoint</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="resource">
+      <div id="list-resource">
+        <label>Fetch {{vm.selectedResource}}</label>
+        <button class="btn btn-sm btn-info" ng-click="vm.getResources()">Go</button>
+        <div>
+          <pre>
+            <code>{{vm.response}}</code>
+          </pre>
+        </div>
+      </div>
+
+      <div id="create-resource">
+        <label>Add {{vm.selectedResource}}</label>
+        <button class="btn btn-sm btn-info" ng-click="vm.createResource()">Create</button>
+         <div>
+          <textarea ng-model="vm.payload" rows="20" cols="120"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
