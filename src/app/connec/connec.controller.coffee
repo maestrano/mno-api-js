@@ -2,6 +2,7 @@
   'ngInject'
   vm = this
 
+  vm.alerts = []
   vm.endpoints = []
   vm.selectedResource = 'company'
   vm.apiEndpoint = 'https://api-connec.maestrano.com/api/v2'
@@ -39,6 +40,13 @@
     vm.getEndpoints()
     vm.exampleResource()
 
+  vm.changeCredentials = ->
+    if EndpointSvc.apikey == '' || EndpointSvc.apisecret == '' || EndpointSvc.groupid == ''
+      vm.alerts = [{message: 'API Credentials are required'}]
+    else
+      vm.alerts = []
+
+  vm.changeCredentials()
   vm.changeResource()
 
   return

@@ -1,35 +1,39 @@
 <div id="content-wrapper">
-  <div class="page-content container-fluid">
+  <div class="page-content">
     <div class="row header">
       <div class="col-xs-12">
         <div class="meta col-xs-4">
           <div class="page">
             Connec! Resource
-            <select name="select-resource" id="select-resource"
+            <select name="select-resource" id="select-resource" class="input-sm"
                 ng-options="endpoint.resource as endpoint.resource for endpoint in vm.endpoints | orderBy:'resource'"
                 ng-model="vm.selectedResource" ng-change="vm.changeResource()"></select>
           </div>
         </div>
         <div class="meta col-xs-2">
-          <div class="page"><input class="col-lg-12" type="text" ng-model="endpointSvc.apikey"></div>
+          <div class="page"><input class="form-control input-sm col-lg-12" type="text" ng-model="endpointSvc.apikey" ng-required="true" ng-blur="vm.changeCredentials()" placeholder="API Key"></div>
           <div class="breadcrumb-links">API Key</div>
         </div>
         <div class="meta col-xs-2">
-          <div class="page"><input class="col-lg-12" type="text" ng-model="endpointSvc.apisecret"></div>
+          <div class="page"><input class="form-control input-sm col-lg-12" type="text" ng-model="endpointSvc.apisecret" ng-required="true" ng-blur="vm.changeCredentials()" placeholder="API Secret"></div>
           <div class="breadcrumb-links">API Secret</div>
         </div>
         <div class="meta col-xs-1">
-          <div class="page"><input tclass="col-lg-12" ype="text" ng-model="endpointSvc.groupid"></div>
+          <div class="page"><input class="form-control input-sm col-lg-12" type="text" ng-model="endpointSvc.groupid" ng-required="true" ng-blur="vm.changeCredentials()" placeholder="Group ID"></div>
           <div class="breadcrumb-links">Group ID</div>
         </div>
         <div class="meta col-xs-3">
-          <div class="page"><input class="col-lg-12" type="text" ng-model="vm.apiEndpoint" ng-blur="vm.changeResource()"></div>
+          <div class="page"><input class="form-control input-sm col-lg-12" type="text" ng-model="vm.apiEndpoint" ng-blur="vm.changeResource()"></div>
           <div class="breadcrumb-links">API Endpoint</div>
         </div>
       </div>
     </div>
 
-    <div id="resource">
+    <div id="resource" class="container-fluid">
+      <div class="alert ng-isolate-scope alert-danger alert-dismissable" data-ng-repeat="alert in vm.alerts">
+        <div><span class="ng-binding ng-scope">{{alert.message}}</span></div>
+      </div>
+
       <div id="list-resource">
         <label>Fetch {{vm.selectedResource}}</label>
         <button class="btn btn-sm btn-info" ng-click="vm.getResources()">Go</button>

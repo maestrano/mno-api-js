@@ -19,6 +19,13 @@
     resourceApi.post(angular.toJson(payload)).then (data) ->
       vm.response = JSON.stringify(data, null, 2)
 
+  vm.changeCredentials = ->
+    if EndpointSvc.apikey == '' || EndpointSvc.apisecret == '' || EndpointSvc.groupid == ''
+      vm.alerts = [{message: 'API Credentials are required'}]
+    else
+      vm.alerts = []
+
   vm.getWidgets()
+  vm.changeCredentials()
 
   return

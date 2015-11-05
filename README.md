@@ -2,9 +2,27 @@
 
 ## Connec!™ API previewer
 
-### Developers
+## Impac!™ API previewer
 
-It's time to use Gulp tasks:
-- `$ gulp` to build an optimized version of your application in folder dist
-- `$ gulp serve` to start BrowserSync server on your source files with live reload
-- `$ gulp serve:dist` to start BrowserSync server on your optimized application without live reload
+### Notes for busy developers
+
+#### Install dependencies
+```bash
+npm install
+bower install
+```
+
+#### Run locally
+```bash
+gulp serve
+```
+
+#### Publish an updated version of the tool
+```bash
+# generate the distribution package
+gulp
+# add a friendly commit message
+git add dist && git commit -m "my awesome feature"
+# push to github pages
+git subtree push --prefix dist origin gh-pages
+```
