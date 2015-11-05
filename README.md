@@ -22,7 +22,7 @@ gulp serve
 # generate the distribution package
 gulp
 # add a friendly commit message
-git add dist && git commit -m "my awesome feature"
+git add dist -f && git commit -m "my awesome feature"
 # push to github pages
 git subtree push --prefix dist origin gh-pages
 ```
